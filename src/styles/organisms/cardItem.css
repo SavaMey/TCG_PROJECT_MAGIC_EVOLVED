@@ -1,0 +1,4 @@
+.carta-img{width:100%;height:275px;object-fit:contain;background:#faf9ff;padding:1rem;}
+.carta-img-detalle{width:100%;max-height:450px;object-fit:contain;background:#f8f6ff;padding:1rem;}
+.carta .precio{font-weight:bold;}
+@media(max-width:575px){.carta-img{height:225px;}}
