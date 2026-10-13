@@ -53,6 +53,33 @@ const cards = [
     price: 2700000,
     image: '/images/657538_in_1000x1000.webp',
   },
+  {
+    id: 7,
+    game: 'Hololive',
+    name: 'Tokino Sora (OSR)',
+    description:
+      'Carta Oshi de Tokino Sora, hSD01-001 del Start Deck Tokino Sora & AZKi. Por $400 te llevas a la pionera de Hololive; los aplausos del público se venden por separado.',
+    price: 400,
+    image: '/images/img_sec3_01.webp',
+  },
+  {
+    id: 8,
+    game: 'Pokemon',
+    name: 'Mewtwo EX',
+    description:
+      'Mewtwo EX de tipo Psíquico: lee tu mente, conoce tu estrategia y aun así se decepciona de tu mazo. Carta individual ideal para coleccionistas y entrenadores con mucha confianza.',
+    price: 11990,
+    image: '/images/ZKLH2LYVDNGQRPXUZTFFVVCHXQ.webp',
+  },
+  {
+    id: 9,
+    game: 'Pokemon',
+    name: 'Caja Misteriosa Pokémon Pokéstax',
+    description:
+      'La caja para quienes disfrutan la emoción de abrir sobres y arrepentirse después: incluye 8 sobres Pokémon, 3 cartas aleatorias VMAX o V, 1 booster pack adicional, 100 fundas, entre 1 y 10 cartas graduadas PSA al azar (notas entre 1 y 10) y 1 sobre clásico del Team Rocket. Contenido sorpresa: ¡Giovanni no acepta reclamos!',
+    price: 79990,
+    image: '/images/pokemongarantizado.webp',
+  },
 ]
 
 export default cards
