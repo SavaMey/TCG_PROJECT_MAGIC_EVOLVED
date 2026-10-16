@@ -8,13 +8,15 @@ import CartaDetalle from './pages/CartaDetalle'
 import Pago from './pages/Pago'
 import PagoCompletado from './pages/pagocompletado'
 import NotFound from './pages/NotFound'
+import Login from './pages/Login'
 
 function App() {
   return (
     <>
       <NavBar />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Login />} />
+        <Route path="/home" element={<Home/>}/>
         <Route path="/cartas" element={<Cartas />} />
         <Route path="/cartas/:id" element={<CartaDetalle />} />
         <Route path="/pago" element={<Pago />} />

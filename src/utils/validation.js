@@ -1,4 +1,3 @@
-// Reglas de demostración para formulario sin procesamiento real de pagos.
 export function validarRut(rut) {
   const limpio = rut.replace(/[.\s-]/g, '').toUpperCase()
   if (!/^\d{7,8}[\dK]$/.test(limpio)) return false
