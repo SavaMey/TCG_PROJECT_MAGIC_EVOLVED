@@ -1,5 +1,6 @@
 import { Form } from 'react-bootstrap'
 
+// Átomo del profesor: un <input> o un <textarea> según el "type"
 export function Input({ className = '', type = 'text', ...props }) {
   const componentProps = {
     className,

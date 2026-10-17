@@ -8,6 +8,7 @@ import '../styles/pages/pagoCompletado.css'
 function PagoCompletado() {
   const { clearCart } = useCart()
 
+  // La compra ya se hizo: ahora sí se vacía el carrito
   useEffect(() => {
     clearCart()
   }, [clearCart])

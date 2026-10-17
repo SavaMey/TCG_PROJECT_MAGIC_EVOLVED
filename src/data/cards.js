@@ -58,8 +58,8 @@ const cards = [
     game: 'Hololive',
     name: 'Tokino Sora (OSR)',
     description:
-      'Carta Oshi de Tokino Sora, hSD01-001 del Start Deck Tokino Sora & AZKi. Por $400 te llevas a la pionera de Hololive; los aplausos del público se venden por separado.',
-    price: 400,
+      'Carta Oshi de Tokino Sora, hSD01-001 del Start Deck Tokino Sora & AZKi. Por 5 luquitas te llevas a la pionera de Hololive; los aplausos del público se venden por separado.',
+    price: 5000,
     image: '/images/img_sec3_01.webp',
   },
   {
