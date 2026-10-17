@@ -1,0 +1,12 @@
+.navbar-marca {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: bold;
+}
+.navbar-marca img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+.navbar .nav-link.active { color: orange; }

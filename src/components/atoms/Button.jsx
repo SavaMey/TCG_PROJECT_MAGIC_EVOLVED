@@ -1,0 +1,5 @@
+import { Button as BootstrapButton } from 'react-bootstrap'
+
+export function Button({ children, ...props }) {
+  return <BootstrapButton {...props}>{children}</BootstrapButton>
+}

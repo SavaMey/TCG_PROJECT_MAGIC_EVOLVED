@@ -1,0 +1,7 @@
+.formulario-pago {
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+.formulario-pago h2 { font-size: 1.4rem; margin: 16px 0 12px; }

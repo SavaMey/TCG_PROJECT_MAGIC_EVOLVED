@@ -1,0 +1,36 @@
+footer#footer {
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  padding: 12px 0;
+}
+#contacto {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+  padding: 20px;
+}
+#contacto div:first-child img { width: 250px; border-radius: 12px; }
+#contacto div:last-child {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+#contacto h2 { color: #fff; }
+#contacto a { color: #fff; }
+#contacto a:hover { color: orange; }
+#contacto div:last-child img { width: 80px; height: auto; }
+
+@media (max-width: 768px) {
+  #contacto { flex-direction: column; gap: 25px; }
+  #contacto div:first-child img { width: 200px; }
+  #contacto div:last-child img { width: 60px; }
+}
+@media (max-width: 400px) {
+  footer#footer { font-size: 13px; padding: 10px 5px; }
+  #contacto { padding: 10px; gap: 15px; }
+  #contacto div:first-child img { width: 100%; max-width: 180px; }
+  #contacto div:last-child img { width: 50px; }
+}
