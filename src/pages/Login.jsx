@@ -4,34 +4,7 @@ import { Container, Form } from 'react-bootstrap'
 import { Text } from '../components/atoms/Text'
 import { Input } from '../components/atoms/Input'
 import { Button } from '../components/atoms/Button'
-
-const email_regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-const min_password = 6
-
-function validarLogin({ email, password }) {
-  const errores = {}
-
-  if (!email.trim()) {
-    errores.email = 'Ingresa tu correo electrónico.'
-  } else if (!email_regex.test(email.trim())) {
-    errores.email = 'Ingresa un correo válido, por ejemplo nombre@correo.com.'
-  }
-
-  if (!password) {
-    errores.password = 'Ingresa tu contraseña.'
-  } else if (password.length < min_password) {
-    errores.password = `La contraseña debe tener al menos ${min_password} caracteres.`
-  }
-
-  return errores
-}
-
-function guardarSesion(sesion) {
-  try {
-    localStorage.setItem('sesion', JSON.stringify(sesion))
-  } catch {
-  }
-}
+import { validarLogin, guardarSesion } from '../utils/validarLogin'
 
 function Login() {
   const navigate = useNavigate()
@@ -53,7 +26,7 @@ function Login() {
     if (Object.keys(nuevosErrores).length > 0) return
 
     guardarSesion({ email: form.email.trim(), invitado: false })
-    navigate('/')
+    navigate('/home')
   }
 
   const handleInvitado = () => {
