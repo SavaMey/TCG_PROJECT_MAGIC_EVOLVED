@@ -13,12 +13,12 @@ const fields = [
   {
     name: 'nombre',
     label: 'Nombre',
-    placeholder: 'Ej. Martín'
+    placeholder: 'Nombre'
   },
   {
     name: 'apellido',
     label: 'Apellidos',
-    placeholder: 'Ej. González Pérez'
+    placeholder: 'Apellidos'
   },
   {
     name: 'rut',
