@@ -20,7 +20,7 @@ export function NavBar() {
 
         <BsNavbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link as={NavLink} to="/" end eventKey="/">
+            <Nav.Link as={NavLink} to="/home" end eventKey="/home">
               Inicio
             </Nav.Link>
 
