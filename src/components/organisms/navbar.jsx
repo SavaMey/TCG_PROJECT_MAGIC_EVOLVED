@@ -11,7 +11,7 @@ export function NavBar() {
   return (
     <BsNavbar bg="dark" variant="dark" expand="lg" collapseOnSelect>
       <Container>
-        <BsNavbar.Brand as={Link} to="/" className="navbar-marca">
+        <BsNavbar.Brand as={Link} to="/home" className="navbar-marca">
           <Image src="/images/77610.webp" alt="Logo TCGPOKEMAGIC" />
           TCGPOKEMAGIC
         </BsNavbar.Brand>
