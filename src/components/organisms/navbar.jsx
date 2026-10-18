@@ -24,19 +24,17 @@ export function NavBar() {
               Inicio
             </Nav.Link>
 
-            <Nav.Link as={NavLink} to="/cartas" eventKey="/cartas">
+            <Nav.Link as={NavLink} to="/cartas">
               Cartas
             </Nav.Link>
           </Nav>
 
           <Nav>
-            <Nav.Link as={NavLink} to="/pago" eventKey="/pago">
-              Pagar{' '}
-              {count > 0 && (
-                <Badge bg="warning" text="dark" pill>
-                  {count}
-                </Badge>
-              )}
+            <Nav.Link as={NavLink} to="/carrito">
+              🛒 Carrito
+              <Badge bg="warning" text="dark" pill className="ms-2">
+                {count}
+              </Badge>
             </Nav.Link>
           </Nav>
         </BsNavbar.Collapse>
