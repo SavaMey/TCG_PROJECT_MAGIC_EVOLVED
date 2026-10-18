@@ -6,9 +6,17 @@ import { CardBody } from '../molecules/CardBody'
 import '../../styles/organisms/cardItem.css'
 import { useCart } from '../../hooks/useCart'
 
-export function CardItem({ card }) {
+export function CardItem({ card, onAddToCart }) {
   const navigate = useNavigate()
   const { addToCart } = useCart()
+
+  const handleAgregar = () => {
+    if (onAddToCart) {
+      onAddToCart()
+    } else {
+      addToCart(card)
+    }
+  }
 
   return (
     <Card className="carta h-100">
@@ -17,6 +25,7 @@ export function CardItem({ card }) {
         alt={`${card.game}: ${card.name}`}
         className="card-img-top carta-img"
       />
+
       <Card.Body className="d-flex flex-column">
         <div className="flex-grow-1">
           <CardBody
@@ -26,11 +35,19 @@ export function CardItem({ card }) {
             price={card.price}
           />
         </div>
+
         <div className="d-flex gap-2 mt-3">
-          <Button variant="outline-dark" onClick={() => navigate(`/cartas/${card.id}`)}>
+          <Button
+            variant="outline-dark"
+            onClick={() => navigate(`/cartas/${card.id}`)}
+          >
             Ver detalles
           </Button>
-          <Button className="btn-comprar-bs" onClick={() => addToCart(card)}>
+
+          <Button
+            className="btn-comprar-bs"
+            onClick={handleAgregar}
+          >
             Agregar
           </Button>
         </div>

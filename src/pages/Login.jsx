@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 import { Container, Form } from 'react-bootstrap'
 import { Text } from '../components/atoms/Text'
 import { Input } from '../components/atoms/Input'
@@ -8,6 +8,7 @@ import { validarLogin, guardarSesion } from '../utils/validarLogin'
 
 function Login() {
   const navigate = useNavigate()
+  const location = useLocation()
   const [form, setForm] = useState({ email: '', password: '' })
   const [errores, setErrores] = useState({})
 
@@ -26,7 +27,8 @@ function Login() {
     if (Object.keys(nuevosErrores).length > 0) return
 
     guardarSesion({ email: form.email.trim(), invitado: false })
-    navigate('/home')
+    const destino = location.state?.desde || '/home'
+    navigate(destino)
   }
 
   const handleInvitado = () => {
