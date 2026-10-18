@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate, Link } from 'react-router-dom'
+import { Routes, Route, Navigate, Link, useLocation } from 'react-router-dom'
 import { Container } from 'react-bootstrap'
 import { NavBar } from './components/organisms/navbar'
 import Home from './pages/Home'
@@ -12,11 +12,14 @@ import ScrollToTop from './components/atoms/ScrollToTop'
 import Login from './pages/Login'
 
 function App() {
+  const { pathname } = useLocation()
+  const fondoDegradado = ['/home', '/cartas', '/carrito', '/pago-completado'].includes(pathname) || pathname.startsWith('/cartas/')
   return (
     <>
       <NavBar />
       <ScrollToTop />
 
+      <div className={fondoDegradado ? 'fondo-degradado' : 'fondo-suave'}>
       <Routes>
         <Route path="/" element={<Navigate to="/home" replace />} />
         <Route path="/home" element={<Home />} />
@@ -28,6 +31,7 @@ function App() {
         <Route path="/pago-completado" element={<PagoCompletado />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+      </div>
       <footer id="footer" className="bg-dark text-light py-4 mt-auto">
         <Container>
           <div className="d-flex flex-column flex-md-row justify-content-between align-items-start gap-4">

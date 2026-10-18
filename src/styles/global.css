@@ -7,10 +7,13 @@
     }
 * {box-sizing:border-box;
 } html {scroll-behavior:smooth;
-} body {margin:0; min-width:320px;
-     background: linear-gradient(135deg, #7d70f1e1, #98e7da);
-      color:#25243a;
-    }
+body {
+    margin: 0;
+    min-width: 320px;
+    background: #bdf8ef;
+    color: #25243a;
+}
+}
 #root {min-height:100vh;
      display:flex;
       flex-direction:column;
@@ -97,3 +100,7 @@
     flex-direction:column;
 }
  }
+
+.fondo-degradado,.fondo-suave{flex:1;display:flex;flex-direction:column;width:100%;}
+.fondo-degradado{background:linear-gradient(135deg,#7d70f1e1,#98e7da);}
+.fondo-suave{background:#bdf8ef;}
