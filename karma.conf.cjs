@@ -6,6 +6,6 @@ module.exports = function(config){config.set({
     {test:/\.css$/,use:['style-loader','css-loader']}
   ]},resolve:{extensions:['.js','.jsx']}},
   reporters:['progress','kjhtml','coverage'],coverageReporter:{type:'html',dir:'coverage/'},
-  browsers:['ChromeHeadless'],singleRun:true,
-  plugins:['karma-jasmine','karma-webpack','karma-chrome-launcher','karma-coverage','karma-jasmine-html-reporter']
+  browsers:['ChromeHeadless', 'Edge'],singleRun:true,
+  plugins:['karma-jasmine','karma-webpack', 'karma-edge-launcher','karma-chrome-launcher','karma-coverage','karma-jasmine-html-reporter']
 })}
