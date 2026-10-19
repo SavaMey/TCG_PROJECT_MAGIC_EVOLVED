@@ -7,5 +7,5 @@ module.exports = function(config){config.set({
   ]},resolve:{extensions:['.js','.jsx']}},
   reporters:['progress','kjhtml','coverage'],coverageReporter:{type:'html',dir:'coverage/'},
   browsers:['Edge'],singleRun:true,
-  plugins:['karma-jasmine','karma-webpack','karma-edge-launcher','karma-coverage','karma-jasmine-html-reporter']
+  plugins:['karma-jasmine','karma-webpack','karma-coverage','karma-jasmine-html-reporter', require('@chiragrupani/karma-chromium-edge-launcher')]
 })}

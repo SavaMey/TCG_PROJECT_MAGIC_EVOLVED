@@ -1,7 +1,7 @@
 import { Routes, Route, Navigate, Link, useLocation } from 'react-router-dom'
 import { Container } from 'react-bootstrap'
 import { NavBar } from './components/organisms/navbar'
-import Home from './pages/Home'
+import Home from './pages/home'
 import Cartas from './pages/Cartas'
 import CartaDetalle from './pages/CartaDetalle'
 import FormularioPago from './pages/formulariopago'
