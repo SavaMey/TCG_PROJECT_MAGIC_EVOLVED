@@ -13,7 +13,7 @@ describe('Organismo PaymentForm',()=>{
         render(<MemoryRouter><PaymentForm/></MemoryRouter>)
         fireEvent.click(screen.getByRole('button',{name:'Completar simulación'}))
         expect(screen.getByText(/Revisa los campos marcados/)).toBeTruthy()
-        expect(screen.getByText('Ingresa tu nombre.')).toBeTruthy()
+        expect(screen.getAllByText(/Usa al menos 2 letras/).length).toBe(2)
     })
     
     it('formatea el vencimiento como MM/AA y deja solo dígitos en tarjeta y CVV',()=>{
