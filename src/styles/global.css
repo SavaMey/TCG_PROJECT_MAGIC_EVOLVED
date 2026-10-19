@@ -1,19 +1,24 @@
+:root {
+  font-family: system-ui, Arial, sans-serif;
+  color: #25243a;
+  background: #eef2fb;
+}
 
-/* Identidad visual de TCG Poke Magic: personalizar aquí colores generales. */
-:root {font-family:
-     system-ui, Arial, sans-serif;
-      color: #25243a;
-       background: #eef2fb;
-    }
-* {box-sizing:border-box;
-} html {scroll-behavior:smooth;
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-    margin: 0;
-    min-width: 320px;
-    background: #bdf8ef;
-    color: #25243a;
+  margin: 0;
+  min-width: 320px;
+  background: #bdf8ef;
+  color: #25243a;
 }
-}
+
 #root {min-height:100vh;
      display:flex;
       flex-direction:column;
@@ -104,3 +109,76 @@ body {
 .fondo-degradado,.fondo-suave{flex:1;display:flex;flex-direction:column;width:100%;}
 .fondo-degradado{background:linear-gradient(135deg,#7d70f1e1,#98e7da);}
 .fondo-suave{background:#bdf8ef;}
+
+
+/* aviso de agregado al carrito */
+
+.aviso-carrito {
+  position: fixed !important;
+  right: 20px !important;
+  bottom: 20px !important;
+  left: auto !important;
+  top: auto !important;
+  z-index: 9999 !important;
+  width: auto;
+  pointer-events: none;
+}
+
+.aviso-carrito .toast {
+  width: min(370px, calc(100vw - 32px));
+  pointer-events: auto;
+}
+
+.aviso-carrito .toast-header {
+  padding: 10px 14px;
+  color: #163b2b;
+  background: #e0f4e8;
+  border-bottom: 1px solid #b8dfc8;
+}
+
+.aviso-carrito .toast-body {
+  padding: 14px;
+  color: #fff;
+  background: #198754;
+}
+
+.aviso-carrito-contenido {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.aviso-carrito-imagen {
+  width: 76px;
+  height: 76px;
+  flex-shrink: 0;
+  object-fit: cover;
+  object-position: center;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+}
+
+.aviso-carrito-titulo {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.aviso-carrito-texto {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+@keyframes entrada-aviso {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+

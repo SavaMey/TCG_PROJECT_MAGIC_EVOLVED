@@ -51,19 +51,37 @@ function Cartas() {
       <ToastContainer
         position="bottom-end"
         className="p-3 aviso-carrito"
+        style={{ zIndex: 2000 }}
       >
         <Toast
-          bg="success"
           show={mostrarMensaje}
           onClose={() => setMostrarMensaje(false)}
-          delay={3000}
+          delay={3500}
           autohide
         >
           <Toast.Header>
             <strong className="me-auto">TCGPOKEMAGIC</strong>
+            <span aria-hidden="true">✨</span>
           </Toast.Header>
-          <Toast.Body className="text-white">
-            ¡Carta agregada al carrito correctamente!
+
+          <Toast.Body>
+            <div className="aviso-carrito-contenido">
+              <img
+                src="/images/botan_carrito.jpg"
+                alt="Shishiro Botan"
+                className="aviso-carrito-imagen"
+              />
+
+              <div>
+                <strong className="aviso-carrito-titulo">
+                  ¡Carta/sobre agregado!
+                </strong>
+
+                <p className="aviso-carrito-texto">
+                  La carta/sobre se agregó al carrito correctamente.
+                </p>
+              </div>
+            </div>
           </Toast.Body>
         </Toast>
       </ToastContainer>
