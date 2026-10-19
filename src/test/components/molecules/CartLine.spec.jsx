@@ -21,4 +21,24 @@ describe('Molécula CartLine',()=>{
         expect(dec).toHaveBeenCalledTimes(1)
         expect(del).toHaveBeenCalledTimes(1)
     });
+
+    it('cada botón invoca solo su propio callback',()=>{
+        const inc=jasmine.createSpy("aumentar"),dec=jasmine.createSpy("disminuir"),del=jasmine.createSpy("eliminar")
+        render(<CartLine item={{game:'Pokemon',name:'Sceptile',quantity:1,price:1000}} onIncrease={inc} onDecrease={dec} onRemove={del}/>)
+
+        fireEvent.click(screen.getByRole('button',{name:'Agregar uno'}))
+        expect(inc).toHaveBeenCalledTimes(1)
+        expect(dec).not.toHaveBeenCalled()
+        expect(del).not.toHaveBeenCalled()
+
+        fireEvent.click(screen.getByRole('button',{name:'Quitar uno'}))
+        expect(inc).toHaveBeenCalledTimes(1)
+        expect(dec).toHaveBeenCalledTimes(1)
+        expect(del).not.toHaveBeenCalled()
+
+        fireEvent.click(screen.getByRole('button',{name:'Eliminar'}))
+        expect(inc).toHaveBeenCalledTimes(1)
+        expect(dec).toHaveBeenCalledTimes(1)
+        expect(del).toHaveBeenCalledTimes(1)
+    });
 });

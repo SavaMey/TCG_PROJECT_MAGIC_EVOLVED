@@ -8,7 +8,7 @@ describe('Atomo Image', () => {
     it('renderiza la imagen con src y alt', () => {
         render(<Image src = "producto.jpg" alt = "Cartita pa comprar" />)
         const img = screen.getByRole('img', { name: 'Cartita pa comprar' })
-        expect(img.getAttribute('src').toBe('producto.jpg'))
+        expect(img.getAttribute('src')).toBe('producto.jpg')
     })
 
     it('usa alt vacio por defecto', () => {
@@ -35,6 +35,6 @@ describe('Atomo Image', () => {
         const onError = jasmine.createSpy('onError')
         render(<Image src="rota.jpg" alt="Rota" onError={onError} />)
         fireEvent.error(screen.getByRole('img', { name: 'Rota' }))
-        expect(onError).toHaveBeenCalledTimes()
+        expect(onError).toHaveBeenCalledTimes(1)
     })
 })

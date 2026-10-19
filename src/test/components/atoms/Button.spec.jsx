@@ -1,6 +1,6 @@
 import React from 'react';
 import {Button} from '../../../components/atoms/Button';
-import { cleanup } from '@testing-library/react';
+import { render, screen, fireEvent, cleanup } from '@testing-library/react'
 
 describe('Atomo Button', ()=>{
     afterEach(() => cleanup())
