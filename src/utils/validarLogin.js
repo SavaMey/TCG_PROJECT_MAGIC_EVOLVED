@@ -25,6 +25,26 @@ export function validarLogin({ email, password }) {
 export function guardarSesion(sesion) {
   try {
     localStorage.setItem('sesion', JSON.stringify(sesion))
+    window.dispatchEvent(new Event('sesionActualizada'))
+  } catch (error) {
+    console.error('No se pudo guardar la sesión:', error)
+  }
+}
+
+export function obtenerSesion() {
+  try {
+    const sesionGuardada = localStorage.getItem('sesion')
+    return sesionGuardada ? JSON.parse(sesionGuardada) : null
   } catch {
+    return null
+  }
+}
+
+export function cerrarSesion() {
+  try {
+    localStorage.removeItem('sesion')
+    window.dispatchEvent(new Event('sesionActualizada'))
+  } catch (error) {
+    console.error('No se pudo cerrar la sesión:', error)
   }
 }

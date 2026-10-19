@@ -1,12 +1,36 @@
 
 import { Navbar as BsNavbar, Nav, Container, Badge } from 'react-bootstrap'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { Image } from '../atoms/Image'
 import '../../styles/organisms/navbar.css'
 import { useCart } from '../../hooks/useCart'
+import { useState, useEffect } from 'react'
+import { obtenerSesion, cerrarSesion } from '../../utils/validarLogin'
 
 export function NavBar() {
   const { count } = useCart()
+  const navigate = useNavigate()
+  const [sesion, setSesion] = useState(obtenerSesion())
+
+  useEffect(() => {
+    const actualizarSesion = () => {
+      setSesion(obtenerSesion())
+    }
+
+    window.addEventListener('storage', actualizarSesion)
+    window.addEventListener('sesionActualizada', actualizarSesion)
+
+    return () => {
+      window.removeEventListener('storage', actualizarSesion)
+      window.removeEventListener('sesionActualizada', actualizarSesion)
+    }
+  }, [])
+
+  const handleCerrarSesion = () => {
+    cerrarSesion()
+    setSesion(null)
+    navigate('/home')
+  }
 
   return (
     <BsNavbar bg="dark" variant="dark" expand="lg" collapseOnSelect>
@@ -36,6 +60,22 @@ export function NavBar() {
                 {count}
               </Badge>
             </Nav.Link>
+
+            {!sesion ? (
+              <Nav.Link as={Link} to="/login">
+                Iniciar sesión
+              </Nav.Link>
+            ) : (
+              <>
+                <Nav.Link disabled>
+                  {sesion.invitado ? 'Invitado' : sesion.email}
+                </Nav.Link>
+
+                <Nav.Link onClick={handleCerrarSesion}>
+                  Cerrar sesión
+                </Nav.Link>
+              </>
+            )}
           </Nav>
         </BsNavbar.Collapse>
       </Container>

@@ -1,4 +1,5 @@
-import { Container, Card, Badge } from 'react-bootstrap'
+import { useState } from 'react'
+import { Container, Card, Badge, Toast, ToastContainer } from 'react-bootstrap'
 import { useNavigate, useParams } from 'react-router-dom'
 import cards from '../data/cards'
 import { Image } from '../components/atoms/Image'
@@ -12,6 +13,12 @@ function CartaDetalle() {
   const navigate = useNavigate()
   const card = cards.find((c) => c.id === parseInt(id))
   const { addToCart } = useCart()
+  const [mostrarMensaje, setMostrarMensaje] = useState(false)
+
+  const handleAgregarAlCarrito = () => {
+    addToCart(card)
+    setMostrarMensaje(true)
+  }
 
   if (!card) {
     return (
@@ -25,27 +32,49 @@ function CartaDetalle() {
   }
 
   return (
-    <Container as="main" className="my-5" style={{ maxWidth: 720 }}>
-      <Button variant="outline-dark" className="mb-3" onClick={() => navigate(-1)}>
-        ← Volver
-      </Button>
-      <Card>
-        <Image
-          src={card.image}
-          alt={`${card.game}: ${card.name}`}
-          className="card-img-top carta-img-detalle"
-        />
-        <Card.Body>
-          <Badge bg="dark" className="mb-2">{card.game}</Badge>
-          <Text variant="h2">{card.name}</Text>
-          <Text variant="p">{card.description}</Text>
-          <Text variant="h4">PRECIO: ${formatPrice(card.price)}</Text>
-        </Card.Body>
-        <Button className="btn-comprar-bs mt-2" onClick={() => addToCart(card)}>
-          Agregar al carrito
+    <>
+      <Container as="main" className="my-5" style={{ maxWidth: 720 }}>
+        <Button variant="outline-dark" className="mb-3" onClick={() => navigate(-1)}>
+          ← Volver
         </Button>
-      </Card>
-    </Container>
+
+        <Card>
+          <Image
+            src={card.image}
+            alt={`${card.game}: ${card.name}`}
+            className="card-img-top carta-img-detalle"
+          />
+
+          <Card.Body>
+            <Badge bg="dark" className="mb-2">{card.game}</Badge>
+            <Text variant="h2">{card.name}</Text>
+            <Text variant="p">{card.description}</Text>
+            <Text variant="h4">PRECIO: ${formatPrice(card.price)}</Text>
+          </Card.Body>
+
+          <Button className="btn-comprar-bs mt-2" onClick={handleAgregarAlCarrito}>
+            Agregar al carrito
+          </Button>
+        </Card>
+      </Container>
+
+      <ToastContainer position="bottom-end" className="p-3" style={{ zIndex: 1100 }}>
+        <Toast
+          bg="success"
+          show={mostrarMensaje}
+          onClose={() => setMostrarMensaje(false)}
+          delay={3000}
+          autohide
+        >
+          <Toast.Header>
+            <strong className="me-auto">TCGPOKEMAGIC</strong>
+          </Toast.Header>
+          <Toast.Body className="text-white">
+            ¡Carta agregada al carrito correctamente!
+          </Toast.Body>
+        </Toast>
+      </ToastContainer>
+    </>
   )
 }
 
